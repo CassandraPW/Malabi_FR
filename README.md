@@ -32,11 +32,22 @@ Maintenant je vais te montrer des vrais mots, mais cette fois ils vont par deux.
 
 Arrêter AUDACITY et sauvegarder le fichier audio : prénom_initial du nom de la famille_école … tout en minuscule svp.
 
+# Error type coding
+Une fois le test effectué, à l'aide de la feuille de calcul dans le dossier data 'cotation_malabi_'. Écoute les enregistrements des mots/pseudomots marqués comme incorrects. Écris la réponse en utilisant la trascription phonétique indiquée dans la feuille de calcul 'phonetic_coding_malabi'. Par exemple, le mot "chat" est codé "Sa" parce que le "ch" forme un seul phonème et que le "t" n'est pas prononcé.
 
-*Instructions for scoring the Malabi
+Une fois que tu as écrit manuellement la transcription phonétique des réponses, exécute le script (XX) pour associer le type d'erreur à la réponse incorrecte. Par exemple, si pour le psedoword 'pocile', la transcription phonétique de l'erreur est 'polis', notre script codera cela comme une erreur de position de lettre, parce que les lettres 'c' et 'l' ont été transposées.
 
-Download the scoring sheet (malabi_cotation.pdf).
-Don't forget to turn on Audacity! Time each test. If you forget, you can take the time on Audacity. On the scoring sheet, note the identifying information. In order to pay close attention to the child's answers, don't note the type of error while the child is reading, simply cross out the words read incorrectly, then note them later as you listen to the recording.
+Il arrive parfois qu'une erreur ait plus d'un code. Dans ce cas, il y a une logique à suivre pour choisir le code. Lorsque plus de deux erreurs évidentes ont été commises, l'erreur est codée 0, ce qui signifie qu'elle est trop complexe pour une logique évidente. A partir des réponses codées, nous avons calculé les erreurs normales pour les French grades 6eme et 5eme. 
+
+Tous les différents types de codes d'erreur avec des explications et des exemples se trouvent dans la feuille de calcul "cotation_malabi_french_error_codes.xlsx".
+
+
+
+##
+*Instructions for scoring the Malabi*
+
+*Download the scoring sheet (malabi_cotation.pdf).*
+*Don't forget to turn on Audacity! Time each test. If you forget, you can take the time on Audacity. On the scoring sheet, note the identifying information. In order to pay close attention to the child's answers, don't note the type of error while the child is reading, simply cross out the words read incorrectly, then note them later as you listen to the recording.
 Test 1) Single words 
 I'm going to show you some unrelated words. Try to read them quickly and accurately. (Look at your watch) Get ready... Go!
 Test 2) Pseudowords
@@ -45,39 +56,13 @@ Test 3) Word pairs
 Now I'm going to show you some real words, but this time they come in pairs. Tell me afterwards if you find this easier or harder. Read them quickly and accurately. Get ready... Go!
 Stop AUDACITY and save the audio file: first_name_initial of family_name_school ... all lowercase please.*
 
-# Codage de l'erreur de Malabi.
-Il arrive souvent qu'une erreur ait plus d'un code. Dans ce cas, il y a une logique à suivre pour choisir le code. Lorsque plus de deux erreurs évidentes ont été commises, l'erreur est codée 0, ce qui signifie qu'elle est trop complexe pour une logique évidente.
-- A partir des réponses codées, nous avons calculé les erreurs normales pour les grades 6 et 7. Voir 'scripts/grade_norming.R'
+*Error type coding the Malabi.*
 
-## Analyse orthographique visuelle
-1) Pour toutes les erreurs visuelles identifiables, si elles peuvent être attribuées à une transposition ou à une migration de lettres, elles doivent être codées comme telles.
-2) Les erreurs de négligence à droite ou à gauche sont identifiées comme n'étant pas attribuées à une transposition ou à une migration de lettres, elles doivent former des mots.
+*Once the test is done, using the spreadsheet in the folder data 'cotation_malabi_'. Listen to the recordings of the words/pseudowords marked as incorrect. Write down the response using the phonetic trascription indicated in the spreadsheet 'phonetic_coding_malabi. For example the word 'chat' is coded 'Sa'because the 'ch' makes a single phoneme and the 't' is not pronounced.*
 
-## Erreurs sous-lexicales
-1) Dyslexie vocalique, mise en évidence par un nombre significativement plus élevé d'erreurs de voyelles que de consonnes. Elle semble être due à un mauvais tamponnage des voyelles par rapport aux consonnes dans le tampon de sortie phonologique. C'est pourquoi elle se manifeste principalement dans la lecture de non-mots et dans la lecture de mots lorsque la voie lexicale est altérée.
-2) Phonologie multi-lettres, également mesurée dans la lecture sous-lexicale. Elle se manifeste par une difficulté à lire les digrammes, les trigrammes et les correspondances graphème-phonème basées sur des règles. C'est le contraire de la lecture de mots, où la régularisation des correspondances graphème-phonème est liée à un déficit de la lecture lexicale, connu sous le nom de dyslexie de surface.
+*Once you have manually written the phonetic transcription of the responses, run the script (XX) to associate the error type to the incorrect response. For example, if for the psedoword 'pocile', the phonetic transcription of the error is 'polis', our script will code this as a letter position error, because the letters 'c' and 'l' were transposed.*
 
-## Erreurs lexicales
-1) La dyslexie de surface se manifeste par une difficulté d'accès au lexique, ce qui signifie que les enfants régularisent trop les mots irréguliers ou comportant des digrammes ou des trigrammes, des correspondances graphème-phonème basées sur des règles et des règles de double lettre.
+*Sometimes an error may have more than one code. In these instances, there is a logic to follow in choosing which code. When more than 2 obvious errors have been made, the error as coded as 0, meaning it is too complex for an obvious logic.From the coded responses we calculated the norm errors for grades 6 and 7. See 'scripts/grade_norming.R'*
 
-## Tampon de sortie phonologique
-Le tampon de sortie phonologique présente des difficultés à lire à haute voix des pseudo-mots longs ou des mots à la morphologie complexe, ainsi que des difficultés à les répéter oralement. Composante de la mémoire de travail qui assemble la représentation phonologique d'un mot et la stocke jusqu'au système articulatoire, qui produit les sons du mot. Elle a également un effet sur la parole.
+*All of the different types of error codes with explanations and examples are in the spreadsheet 'cotation_malabi_french_error_codes.xlsx'.*
 
-
-##
-*Error coding the Malabi.*
-
-*Many times an error may have more than one code. I these instances, there is a logic to follow in choosing which code. When more than 2 obvious errors have been made, the error as coded as 0, meaning it is too complex for an obvious logic.From the coded responses we calculated the norm errors for grades 6 and 7. See 'scripts/grade_norming.R'*
-
-*Visual orthographic analysis manifests as visual identifiable errors, if they can be attributed to a letter transposition or migration, than they should be coded as thus.*
-
-*Right or left neglect errors are identified as not being attributed to letter transposition or migration, they should form words. Neglexia can also be identified as making all errors on either one side of words.*
-
-*3 forms of Sub-lexical Errors*
-*1) Vowel dyslexia, highlighted by significantly more vowel than consonant errors. Appears to be due to poor vowel buffering in relation to consonants to the phonological output buffer. For this reason, it occurs mainly in non-word read, and in word reading when the lexical route is impaired.*
-*2) Multi-Letter Phonological, also measured in sub-lexical reading. This manifests as difficulty in reading digrams, trigrams and rule-based grapheme-phoneme correspondences.This is the opposite of word reading, where the regularizing of grapheme-phoneme correspondences is linked to a deficit in lexical reading, known as surface dyslexia.*
-*3) Lexical Errors*
-
-*Surface dyslexia manifests as a difficulty in lexical access, meaning that children over regularize words that are irregular or have digrams or trigrams, rule based grapheme-phoneme correspondences and double letter rules.*
-
-*Phonological output buffer demonstrate difficulty in reading aloud long pseudowords or words with complex morphology, as well as a difficulties in their oral repetition. A working memory component that assembles the phonological representation of a word and stores it until the articulatory system, which produces the sounds of the word. It also effects speech.*
