@@ -21,7 +21,7 @@ Le Malabi est un test gratuit, mais nous vous demandons de contacter notre labor
 ### contact : cassandra.potier-watkins@college-de-france.fr
 
 # Instructions pour la passation du Malabi
-Téléchargez la feuille de cotation (feuille_de_notation_malabi.pdf)
+Téléchargez la feuille de cotation (malabi_cotation.pdf)
 N’oublier pas d’allumer Audacity ! Chronométrer chaque test. Si vous oubliez, vous pouvez prendre le temps sur Audacity. Sur la feuille de cotation, noter les informations identifiantes. Afin d'être très attentif aux réponses de l'enfant, ne note pas le type d'erreur pendant que l'enfant lit, barre simplement les mots lus de façon incorrecte, puis note-les plus tard en écoutant l'enregistrement.
 ## Test 1) Mots isolés 
 Je vais te montrer des mots, ils n’ont pas de lien entre eux. Essaie de les lire rapidement et avec précision. (Regardez votre montre) Prépare-toi… vas-y !
@@ -35,7 +35,7 @@ Arrêter AUDACITY et sauvegarder le fichier audio : prénom_initial du nom de la
 
 *Instructions for scoring the Malabi
 
-Download the scoring sheet (feuille_de_notation_malabi.pdf).
+Download the scoring sheet (malabi_cotation.pdf).
 Don't forget to turn on Audacity! Time each test. If you forget, you can take the time on Audacity. On the scoring sheet, note the identifying information. In order to pay close attention to the child's answers, don't note the type of error while the child is reading, simply cross out the words read incorrectly, then note them later as you listen to the recording.
 Test 1) Single words 
 I'm going to show you some unrelated words. Try to read them quickly and accurately. (Look at your watch) Get ready... Go!
