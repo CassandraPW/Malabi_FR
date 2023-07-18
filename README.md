@@ -70,7 +70,7 @@ Le tampon de sortie phonologique présente des difficultés à lire à haute voi
 
 *Visual orthographic analysis manifests as visual identifiable errors, if they can be attributed to a letter transposition or migration, than they should be coded as thus.*
 
-*Right or left neglect errors are identified as not being attributed to letter transposition or migration, they should form words.Neglexia can also be identified as making all errors on either one side of words.
+*Right or left neglect errors are identified as not being attributed to letter transposition or migration, they should form words. Neglexia can also be identified as making all errors on either one side of words.*
 
 *3 forms of Sub-lexical Errors*
 *1) Vowel dyslexia, highlighted by significantly more vowel than consonant errors. Appears to be due to poor vowel buffering in relation to consonants to the phonological output buffer. For this reason, it occurs mainly in non-word read, and in word reading when the lexical route is impaired.*
