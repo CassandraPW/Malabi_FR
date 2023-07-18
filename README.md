@@ -42,9 +42,9 @@ Il arrive parfois qu'une erreur ait plus d'un code. Dans ce cas, il y a une logi
 Tous les différents types de codes d'erreur avec des explications et des exemples se trouvent dans la feuille de calcul "cotation_malabi_french_error_codes.xlsx".
 
 # Dépistage des dyslexies
-Une fois que les réponses des sujets ont été codées, le script (XX) calcule le nombre d'erreurs d'un certain type et vérifie si le score des lecteurs atteint le seuil par rapport aux lecteurs normaux pour une dyslexie particulière.
+Une fois que les réponses des sujets ont été codées, le script (scripts/1R_malabi_dyslexia_detection.R) calcule le nombre d'erreurs d'un certain type et vérifie si le score des lecteurs atteint le seuil par rapport aux lecteurs normaux pour une dyslexie particulière.
 
-After the subjects responses have been coded, the script (XX) to calculate the number of errors of a certain type and see if the readers score reaches threshold compared to normal readers for a particular dyslexia.
+After the subjects responses have been coded, the script (scripts/2R_malabi_dyslexia_detection.R)  to calculate the number of errors of a certain type and see if the readers score reaches threshold compared to normal readers for a particular dyslexia.
 
 ##
 *Instructions for scoring the Malabi*
@@ -63,9 +63,9 @@ Stop AUDACITY and save the audio file: first_name_initial of family_name_school 
 
 *Once the test is done, using the spreadsheet in the folder data 'cotation_malabi_'. Listen to the recordings of the words/pseudowords marked as incorrect. Write down the response using the phonetic trascription indicated in the spreadsheet 'phonetic_coding_malabi. For example the word 'chat' is coded 'Sa'because the 'ch' makes a single phoneme and the 't' is not pronounced.*
 
-*Once you have manually written the phonetic transcription of the responses, run the script (scripts/2R_malabi_dyslexia_detection.R) to associate the error type to the incorrect response. For example, if for the psedoword 'pocile', the phonetic transcription of the error is 'polis', our script will code this as a letter position error, because the letters 'c' and 'l' were transposed.*
+*Once you have manually written the phonetic transcription of the responses, run the script (XX) to associate the error type to the incorrect response. For example, if for the psedoword 'pocile', the phonetic transcription of the error is 'polis', our script will code this as a letter position error, because the letters 'c' and 'l' were transposed.*
 
-*Sometimes an error may have more than one code. In these instances, there is a logic to follow in choosing which code. When more than 2 obvious errors have been made, the error as coded as 0, meaning it is too complex for an obvious logic.From the coded responses we calculated the norm errors for grades 6 and 7. See 'scripts/grade_norming.R'*
+*Sometimes an error may have more than one code. In these instances, there is a logic to follow in choosing which code. When more than 2 obvious errors have been made, the error as coded as 0, meaning it is too complex for an obvious logic.From the coded responses we calculated the norm errors for grades 6 and 7. *
 
 *All of the different types of error codes with explanations and examples are in the spreadsheet 'cotation_malabi_french_error_codes.xlsx'.*
 
