@@ -63,16 +63,17 @@ Il arrive souvent qu'une erreur ait plus d'un code. Dans ce cas, il y a une logi
 ## Tampon de sortie phonologique
 Le tampon de sortie phonologique présente des difficultés à lire à haute voix des pseudo-mots longs ou des mots à la morphologie complexe, ainsi que des difficultés à les répéter oralement. Composante de la mémoire de travail qui assemble la représentation phonologique d'un mot et la stocke jusqu'au système articulatoire, qui produit les sons du mot. Elle a également un effet sur la parole.
 
-*Error coding the Malabi.
-Many times an error may have more than one code. I these instances, there is a logic to follow in choosing which code. When more than 2 obvious errors have been made, the error as coded as 0, meaning it is too complex for an obvious logic.
-- From the coded responses we calculated the norm errors for grades 6 and 7. See 'scripts/grade_norming.R'
-Visual orthographic analysis
-1) For any of the visual identifiable errors, if they can be attributed to a letter transposition or migration, than they should be coded as thus.
-2) Right or left neglect errors are identified as not being attributed to letter transposition or migration, they should form words.Neglexia can also be identified as making all errors on either one side of words.
-Sub-lexical Errors
-1) Vowel dyslexia, highlighted by significantly more vowel than consonant errors. Appears to be due to poor vowel buffering in relation to consonants to the phonological output buffer. For this reason, it occurs mainly in non-word read, and in word reading when the lexical route is impaired.
-2) Multi-Letter Phonological, also measured in sub-lexical reading. This manifests as difficulty in reading digrams, trigrams and rule-based grapheme-phoneme correspondences.This is the opposite of word reading, where the regularizing of grapheme-phoneme correspondences is linked to a deficit in lexical reading, known as surface dyslexia.
-3) Lexical Errors
-1) Surface dyslexia manifests as a difficulty in lexical access, meaning that children over regularize words that are irregular or have digrams or trigrams, rule based grapheme-phoneme correspondences and double letter rules.
-Phonological Output Buffer
-Phonological output buffer demonstrate difficulty in reading aloud long pseudowords or words with complex morphology, as well as a difficulties in their oral repetition. A working memory component that assembles the phonological representation of a word and stores it until the articulatory system, which produces the sounds of the word. It also effects speech.*
+
+*Error coding the Malabi.*
+
+*Many times an error may have more than one code. I these instances, there is a logic to follow in choosing which code. When more than 2 obvious errors have been made, the error as coded as 0, meaning it is too complex for an obvious logic.From the coded responses we calculated the norm errors for grades 6 and 7. See 'scripts/grade_norming.R'*
+*Visual orthographic analysis*
+*1) For any of the visual identifiable errors, if they can be attributed to a letter transposition or migration, than they should be coded as thus.*
+*2) Right or left neglect errors are identified as not being attributed to letter transposition or migration, they should form words.Neglexia can also be identified as making all errors on either one side of words.
+Sub-lexical Errors*
+*1) Vowel dyslexia, highlighted by significantly more vowel than consonant errors. Appears to be due to poor vowel buffering in relation to consonants to the phonological output buffer. For this reason, it occurs mainly in non-word read, and in word reading when the lexical route is impaired.*
+*2) Multi-Letter Phonological, also measured in sub-lexical reading. This manifests as difficulty in reading digrams, trigrams and rule-based grapheme-phoneme correspondences.This is the opposite of word reading, where the regularizing of grapheme-phoneme correspondences is linked to a deficit in lexical reading, known as surface dyslexia.*
+*3) Lexical Errors*
+*1) Surface dyslexia manifests as a difficulty in lexical access, meaning that children over regularize words that are irregular or have digrams or trigrams, rule based grapheme-phoneme correspondences and double letter rules.*
+*Phonological Output Buffer*
+*Phonological output buffer demonstrate difficulty in reading aloud long pseudowords or words with complex morphology, as well as a difficulties in their oral repetition. A working memory component that assembles the phonological representation of a word and stores it until the articulatory system, which produces the sounds of the word. It also effects speech.*
