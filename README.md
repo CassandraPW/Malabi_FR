@@ -32,7 +32,9 @@ Maintenant je vais te montrer des vrais mots, mais cette fois ils vont par deux.
 
 Arrêter AUDACITY et sauvegarder le fichier audio : prénom_initial du nom de la famille_école … tout en minuscule svp.
 
+
 *Instructions for scoring the Malabi
+
 Download the scoring sheet (feuille_de_notation_malabi.pdf).
 Don't forget to turn on Audacity! Time each test. If you forget, you can take the time on Audacity. On the scoring sheet, note the identifying information. In order to pay close attention to the child's answers, don't note the type of error while the child is reading, simply cross out the words read incorrectly, then note them later as you listen to the recording.
 Test 1) Single words 
