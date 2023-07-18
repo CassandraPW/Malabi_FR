@@ -64,6 +64,7 @@ Il arrive souvent qu'une erreur ait plus d'un code. Dans ce cas, il y a une logi
 Le tampon de sortie phonologique présente des difficultés à lire à haute voix des pseudo-mots longs ou des mots à la morphologie complexe, ainsi que des difficultés à les répéter oralement. Composante de la mémoire de travail qui assemble la représentation phonologique d'un mot et la stocke jusqu'au système articulatoire, qui produit les sons du mot. Elle a également un effet sur la parole.
 
 
+
 *Error coding the Malabi.*
 
 *Many times an error may have more than one code. I these instances, there is a logic to follow in choosing which code. When more than 2 obvious errors have been made, the error as coded as 0, meaning it is too complex for an obvious logic.From the coded responses we calculated the norm errors for grades 6 and 7. See 'scripts/grade_norming.R'*
