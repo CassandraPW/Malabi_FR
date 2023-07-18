@@ -14,14 +14,14 @@ This project first began with norming the data of French 6th and 7th grade stude
 
 # Obtenir le test
 Le Malabi est un test gratuit, mais nous vous demandons de contacter notre laboratoire pour l'obtenir. Pourquoi ? Parce que le Malabi, contrairement à d'autres tests de dépistage de la dyslexie, exige une attention particulière à la notation d'erreurs spécifiques ainsi qu'à la mesure du nombre global d'erreurs et de la vitesse de lecture. Nous vous recommandons, avant de nous contacter pour essayer le test, de regarder cette vidéo sur les différents types de dyslexie (en anglais, avec sous-titres en français) : https://www.college-de-france.fr/fr/agenda/seminaire/les-troubles-specifiques-du-developpement-cognitif/diagnostic-et-remediation-des-differents-sous-types-de-dyslexie
-contact : cassandra.potier-watkins@college-de-france.fr
 
 *Get the screener*
-*The Malabi is a free test, however, we require that you contact our lab to obtain it. Why, becasue the Malabi, unlike other dyslexia screeners requires careful attention to specific error scoring along with measuring the overall number of errors and reading speed. We reccomend that before you contact us to try the test, please watch this video on different dyslexia types (in English, with French subtitles) : https://www.college-de-france.fr/fr/agenda/seminaire/les-troubles-specifiques-du-developpement-cognitif/diagnostic-et-remediation-des-differents-sous-types-de-dyslexie
-contact : cassandra.potier-watkins@college-de-france.fr*
+*The Malabi is a free test, however, we require that you contact our lab to obtain it. Why, becasue the Malabi, unlike other dyslexia screeners requires careful attention to specific error scoring along with measuring the overall number of errors and reading speed. We reccomend that before you contact us to try the test, please watch this video on different dyslexia types (in English, with French subtitles) : https://www.college-de-france.fr/fr/agenda/seminaire/les-troubles-specifiques-du-developpement-cognitif/diagnostic-et-remediation-des-differents-sous-types-de-dyslexie*
+
+### contact : cassandra.potier-watkins@college-de-france.fr
 
 # Instructions pour la passation du Malabi
-Téléchargez la feuille de notation (feuille_de_notation_malabi.pdf)
+Téléchargez la feuille de cotation (feuille_de_notation_malabi.pdf)
 N’oublier pas d’allumer Audacity ! Chronométrer chaque test. Si vous oubliez, vous pouvez prendre le temps sur Audacity. Sur la feuille de cotation, noter les informations identifiantes. Afin d'être très attentif aux réponses de l'enfant, ne note pas le type d'erreur pendant que l'enfant lit, barre simplement les mots lus de façon incorrecte, puis note-les plus tard en écoutant l'enregistrement.
 ## Test 1) Mots isolés 
 Je vais te montrer des mots, ils n’ont pas de lien entre eux. Essaie de les lire rapidement et avec précision. (Regardez votre montre) Prépare-toi… vas-y !
