@@ -23,11 +23,11 @@ contact : cassandra.potier-watkins@college-de-france.fr*
 # Instructions pour la passation du Malabi
 Téléchargez la feuille de notation (feuille_de_notation_malabi.pdf)
 N’oublier pas d’allumer Audacity ! Chronométrer chaque test. Si vous oubliez, vous pouvez prendre le temps sur Audacity. Sur la feuille de cotation, noter les informations identifiantes. Afin d'être très attentif aux réponses de l'enfant, ne note pas le type d'erreur pendant que l'enfant lit, barre simplement les mots lus de façon incorrecte, puis note-les plus tard en écoutant l'enregistrement.
-# Test 1) Mots isolés 
+## Test 1) Mots isolés 
 Je vais te montrer des mots, ils n’ont pas de lien entre eux. Essaie de les lire rapidement et avec précision. (Regardez votre montre) Prépare-toi… vas-y !
-# Test 2) Pseudomots
+## Test 2) Pseudomots
 Maintenant je vais te montrer des mots qui n’existent pas, que j’ai inventés. Lis-les rapidement et avec précision. Prépare-toi…. Vas-y !
-# Test 3) Paires de mots 
+## Test 3) Paires de mots 
 Maintenant je vais te montrer des vrais mots, mais cette fois ils vont par deux. Tu me diras après si tu trouves cela plus facile ou plus difficile. Lis-les rapidement et avec précision. Prépare-toi… vas-y !
 
 Arrêter AUDACITY et sauvegarder le fichier audio : prénom_initial du nom de la famille_école … tout en minuscule svp.
