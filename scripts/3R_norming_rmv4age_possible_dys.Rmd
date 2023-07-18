@@ -1,0 +1,237 @@
+---
+title: "1_methods"
+author: "Cassandra PW"
+date: "5/9/2022"
+output: html_document
+---
+```{r setup}
+knitr::opts_knit$set(root.dir = "/Users/cassandrapotierwatkins/Documents/malabi")
+```
+
+The goal of this script is to create norms for a grade on the Malabi test. Children are removed bcs their are out of the age range or diagnosed as dyslexic by the Malabi.
+
+```{r, include=FALSE}
+# Libraries
+library(readxl); library(lubridate); library(tidyverse); library(reshape2); library(ez) ; library(rstatix) ; library(coin) ; library(ggpubr)
+source("7_scripts/global_functions2.R")
+
+# What subjects am I interested in from, this references the name of their datafile and 'project' column in the subject database.
+project <- "college2018"
+# Data files
+d <- read_csv(paste0("6_data/normData/malabi_",project,".csv"))
+dysTypes <- read_excel("3_stim/malabi_errorcodes_french2.xlsx") 
+s <- read_excel("6_data/subject_db.xlsx")
+
+## Put in american grades for writing simplicity.
+s$grade <- factor(s$grade, levels=c(6,5) , labels=c('6','7'), ordered=TRUE) 
+## Put age in months.
+s$age_in_months <- trunc((s$dob %--% s$test_date) / months(1))
+
+# Population of interest
+subj <- s[s$project==project & s$subject_lambda==TRUE, ]
+```
+
+
+Start demographics.
+```{r}
+table(subj$grade)
+table(subj$grade, subj$sex) 
+```
+
+# Remove subjects who are outside of the normal age range.
+
+## Plot the age range in months.
+```{r}
+ggplot(data = subj, aes(grade, age_in_months)) +
+  geom_boxplot() 
+```
+
+It looks like there are several students that are greater than our required "all students within 2SD of the mean".
+```{r}
+age_stats <- subj %>% # Compare the SD by each grade.
+  select(grade, age_in_months) %>%
+  group_by(grade) %>%
+  summarise(min=min(age_in_months), max=max(age_in_months), meanAge = mean(age_in_months), sdAge = sd(age_in_months), n=n(), outlierMax = ceiling(meanAge+2*sdAge), outlierMin = ceiling(meanAge-2*sdAge)) 
+
+subj$age_in_norm[subj$grade==6] <- 
+  ifelse(subj$age_in_months[subj$grade==6]<age_stats$outlierMin[age_stats$grade==6], FALSE, 
+         ifelse(subj$age_in_months[subj$grade==6]>age_stats$outlierMax[age_stats$grade==6],FALSE, TRUE))
+
+subj$age_in_norm[subj$grade==7] <- 
+  ifelse(subj$age_in_months[subj$grade==7]<age_stats$outlierMin[age_stats$grade==7], FALSE, 
+         ifelse(subj$age_in_months[subj$grade==7]>age_stats$outlierMax[age_stats$grade==7],FALSE, TRUE))
+age_stats
+(age_stats$min/12)
+(age_stats$min%%12)
+(age_stats$max/12)
+(age_stats$max%%12)
+
+
+# Three kids in each grade were too old.Nobody is too young. ADD info to DB, "include_in_norms ==FALSE".
+tooOld<- subj[subj$age_in_norm==FALSE, ]
+subj <- subj[subj$age_in_norm==TRUE, ]
+```
+
+Create tables of each subjects score for: grade x subtest x error_type or dyslexia
+```{r}
+d <- d[d$id%in%subj$id, ]
+
+dys_code_list <- unique(c(as.list(dysTypes$errorcode)))
+dys_codes_wide <-sapply(dys_code_list, function(i){ x<-ifelse(grepl(pattern=i, d$errorcode), 1, 0)})
+colnames(dys_codes_wide) <- dys_code_list
+dys_codes_wide <- cbind(d[,c('subtest', 'id')], dys_codes_wide)
+
+d_long <- dys_codes_wide %>% pivot_longer(!c("id", "subtest"),
+                              names_to="errorcode", 
+                              values_to="count") %>%
+  group_by(id, subtest, errorcode) %>% 
+  summarise(errors = sum(count), .groups = 'drop')
+
+d_long <- merge(d_long, dysTypes[,c("subtest", "errorcode","dyslexia")], by = c("subtest", "errorcode") ) 
+d_long <- merge(d_long, subj[,c("id","school","sex","grade","age_in_months")])
+
+subtest_score <- aggregate(errors~ id + school + sex + grade +age_in_months + subtest, d_long, sum)
+dyslexia_score <- aggregate(errors~ id + school + sex + grade + subtest + dyslexia, d_long, sum)
+errorcode_score <- aggregate(errors~ id + school + sex + grade +age_in_months + subtest + errorcode, d_long, sum)
+```
+
+
+## Subtest Norms
+```{r}
+subtest_stats <- subtest_score %>% # Compare the SD by each grade.
+  select(grade, subtest, errors) %>%
+  group_by(grade, subtest) %>%
+  summarise(min=min(errors), max=max(errors), meanErrors = mean(errors), sdErrors = sd(errors), n=n(), outlierMax = ceiling(meanErrors+3*sdErrors)) 
+
+subtest_score <- merge(subtest_score, subtest_stats[,c("grade","subtest","outlierMax")])
+subtest_score$subtest_in_norm <- ifelse(subtest_score$errors > subtest_score$outlierMax, FALSE, TRUE) 
+
+# Signal these subjects in the database to be 'include_in_norms' = FALSE. Add comment to 'notes'.
+rmv <- unique(subtest_score$id[subtest_score$subtest_in_norm==FALSE])
+rmv 
+```
+
+Dyslexia Norms
+```{r}
+# Calculate norms for each error type.
+dyslexias_stats <- dyslexia_score %>% # Compare the SD by each grade.
+  select(grade, subtest, dyslexia, errors) %>%
+  group_by(grade, subtest, dyslexia) %>%
+  summarise(min=min(errors), max=max(errors), meanErrors = mean(errors), sdErrors = sd(errors), n=n(), outlierMax = ceiling(meanErrors+3*sdErrors)) 
+
+dyslexia_score <- merge(dyslexia_score, dyslexias_stats[,c("grade","subtest","dyslexia","outlierMax")])
+dyslexia_score$dyslexia_in_norm <- ifelse(dyslexia_score$errors>dyslexia_score$outlierMax, FALSE, TRUE) 
+
+# Signal these subjects in the database to be 'include_in_norms' = FALSE. Add comment to 'notes'.
+rmv <- unique(append(rmv, unique(dyslexia_score$id[dyslexia_score$dyslexia_in_norm==FALSE])))
+rmv
+```
+
+```{r}
+rmv
+norm_subj <- subj[!subj$id%in%rmv, ]
+```
+
+
+# Norms for each type of dyslexia
+```{r}
+### Create a table with summary information with N, mean, SD, CRAW.
+malabi_norms_g67<-dyslexia_score[dyslexia_score$id%in%norm_subj$id, ] %>%
+  group_by(grade, subtest, dyslexia) %>%
+  summarise(Mean = mean(errors), SD = sd(errors), n = n()) %>%
+  mutate(across(where(is.numeric), ~ round(., 3)))
+malabi_norms_g67$outlier <- round(2*malabi_norms_g67$SD + malabi_norms_g67$Mean)
+```
+
+# Add the CRAW
+```{r}
+# Add the Crawford and Howell number of errors for single person dys 1, 2 and 3 SD from the mean.
+malabi_norms_g67$outlierPminus1 <- round(CrawfordHowellSingle(malabi_norms_g67$outlier-1,
+                                                                      malabi_norms_g67$Mean,
+                                                                      malabi_norms_g67$SD, malabi_norms_g67$n)[[3]], digits = 3)
+
+malabi_norms_g67$outlierP <- round(CrawfordHowellSingle(malabi_norms_g67$outlier,
+                                                                  malabi_norms_g67$Mean,
+                                                                  malabi_norms_g67$SD, malabi_norms_g67$n)[[3]], digits = 3)
+
+malabi_norms_g67$outlierPplus1 <- round(CrawfordHowellSingle(malabi_norms_g67$outlier+1,
+                                                                      malabi_norms_g67$Mean,
+                                                                      malabi_norms_g67$SD,
+                                                                      malabi_norms_g67$n)[[3]], digits = 3)
+
+# At what outlier is CRAW significant ?
+malabi_norms_g67$CRAW <- ifelse(is.na(malabi_norms_g67$outlierP)|malabi_norms_g67$outlierP>.05,malabi_norms_g67$outlier+1,
+                                ifelse(malabi_norms_g67$outlierPminus1<0.05, malabi_norms_g67$outlier-1,malabi_norms_g67$outlier))
+
+```
+
+```{r}
+malabi_norms_g67$subtest <- factor(malabi_norms_g67$subtest, levels = c("sw","pw","wp"), ordered = TRUE)
+malabi_norms_g67$dyslexia <- factor(malabi_norms_g67$dyslexia, levels = c("attentional",
+                                                                          "letter_position",
+                                                                          "visual",
+                                                                          "neglect",
+                                                                          "phonological",
+                                                                          "vowel",
+                                                                          "surface",
+                                                                          "deep"), ordered = TRUE)
+
+normal_table <- malabi_norms_g67 %>%
+  select(grade, subtest, dyslexia, Mean, SD, CRAW) %>%
+  mutate(norm = paste(round(Mean, digits = 2), round(SD, digits = 2), round(CRAW), sep = ", ")) %>%
+  select(grade, subtest, dyslexia, norm) %>%
+  pivot_wider(names_from = subtest, values_from = norm)
+```
+
+
+### Norms for each errorcode ###
+## Create a table with summary information with N, mean, SD, CRAW.
+```{r}
+malabi_errorcodenorms_g67<-errorcode_score[errorcode_score$id%in%norm_subj$id, ] %>%
+  group_by(grade, subtest, errorcode) %>%
+  summarise(Mean = mean(errors), SD = sd(errors), n = n()) %>%
+  mutate(across(where(is.numeric), ~ round(., 3)))
+malabi_errorcodenorms_g67$outlier <- round(2*malabi_errorcodenorms_g67$SD + malabi_errorcodenorms_g67$Mean)
+
+# Add the Crawford and Howell number of errors for single person dys 1, 2 and 3 SD from the mean.
+malabi_errorcodenorms_g67$outlierPminus1 <- round(CrawfordHowellSingle(malabi_errorcodenorms_g67$outlier-1,
+                                                                      malabi_errorcodenorms_g67$Mean,
+                                                                      malabi_errorcodenorms_g67$SD, malabi_errorcodenorms_g67$n)[[3]], digits = 3)
+
+malabi_errorcodenorms_g67$outlierP <- round(CrawfordHowellSingle(malabi_errorcodenorms_g67$outlier,
+                                                                  malabi_errorcodenorms_g67$Mean,
+                                                                  malabi_errorcodenorms_g67$SD, malabi_errorcodenorms_g67$n)[[3]], digits = 3)
+
+malabi_errorcodenorms_g67$outlierPplus1 <- round(CrawfordHowellSingle(malabi_errorcodenorms_g67$outlier+1,
+                                                                      malabi_errorcodenorms_g67$Mean,
+                                                                      malabi_errorcodenorms_g67$SD,
+                                                                      malabi_errorcodenorms_g67$n)[[3]], digits = 3)
+
+# At what outlier is CRAW significant ?
+malabi_errorcodenorms_g67$CRAW <- ifelse(is.na(malabi_errorcodenorms_g67$outlierP)|malabi_errorcodenorms_g67$outlierP>.05,malabi_errorcodenorms_g67$outlier+1,
+                                ifelse(malabi_errorcodenorms_g67$outlierPminus1<0.05, malabi_errorcodenorms_g67$outlier-1,malabi_errorcodenorms_g67$outlier))
+
+```
+Subtest means
+```{r}
+subtest_score[subtest_score$id%in%norm_subj$id, ] %>%
+  group_by(grade, subtest) %>%
+  summarise(Mean = mean(errors), SD = sd(errors), n = n()) %>%
+  mutate(across(where(is.numeric), ~ round(., 2)))
+```
+
+
+
+Save datafiles.
+```{r}
+write.csv(normal_table, "8_figures/normal_table.csv", row.names = FALSE)
+write.csv(malabi_norms_g67[,c("grade","subtest","dyslexia","Mean","SD","n","CRAW")], "3_stim/malabi_norms_g67.csv", row.names = FALSE) #Stats for the normed data.
+write.csv(malabi_errorcodenorms_g67[,c("grade","subtest","errorcode","Mean","SD","n","CRAW")], "3_stim/malabi_errorcodenorms_g67.csv", row.names = FALSE) #Stats for the normed data.
+# Do not save the db bcs I want to alway work with my complete group of kids. Enter by hand children that are removed from norms.
+# Save the data for the retained norms to the Malabi Article folder for a Methods section.
+write.csv(norm_subj[,c("id","sex","project","school", "grade", "age_in_months")], "6_data/norm_subj.csv", row.names = FALSE)
+write.csv(subtest_score[!subtest_score$id%in%rmv, ], "6_data/subtest_score.csv", row.names = FALSE)
+write.csv(dyslexia_score[!dyslexia_score$id%in%rmv, ], "6_data/dyslexia_score.csv", row.names = FALSE)
+write.csv(d[!d$id%in%rmv, ], "6_data/errorcode_score.csv", row.names = FALSE)
+```
+
