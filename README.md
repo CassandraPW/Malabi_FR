@@ -34,16 +34,16 @@ Maintenant je vais te montrer des vrais mots, mais cette fois ils vont par deux.
 Arrêter AUDACITY et sauvegarder le fichier audio : prénom_initial du nom de la famille_école … tout en minuscule svp.
 
 # Error type coding
-Une fois le test effectué, en utilisant la feuille de scoring dans le dossier 'data/cotation_malabi'. Écoute les enregistrements des mots/pseudomots marqués comme incorrects. Écris la réponse en utilisant la trascription phonétique indiquée dans la feuille de calcul 'phonetic_coding_malabi'. Par exemple, le mot "chat" est codé "Sa" parce que le "ch" forme un seul phonème et que le "t" n'est pas prononcé.
+Une fois le test effectué, en utilisant la feuille de scoring dans le dossier 'data/malabi_subjectname.xlsx'. Écoute les enregistrements des mots/pseudomots marqués comme incorrects sur votre feuille de cotations. Écris la réponse du subjet en utilisant la trascription phonétique indiquée dans la feuille de calcul 'phonetic_coding_malabi.xlsx'. Par exemple, le mot "chat" est codé "Sa" parce que le "ch" forme un seul phonème et que le "t" n'est pas prononcé.
 
-Une fois que tu as écrit manuellement la transcription phonétique des réponses, exécute le script (1R_error_response_coding.R) pour associer le type d'erreur à la réponse incorrecte. Par exemple, si pour le psedoword 'pocile', la transcription phonétique de l'erreur est 'polis', notre script codera cela comme une erreur de position de lettre, parce que les lettres 'c' et 'l' ont été transposées.
+Une fois que tu as écrit manuellement la transcription phonétique des réponses, exécute le code (script/1R_error_response_coding.R) pour associer le type d'erreur à la réponse incorrecte. Par exemple, si pour le psedoword 'pocile', la transcription phonétique de l'erreur est 'polis', notre script codera cela comme une erreur de position de lettre, parce que les lettres 'c' et 'l' ont été transposées.
 
 Il arrive parfois qu'une erreur ait plus d'un code. Dans ce cas, il y a une logique à suivre pour choisir le code. Lorsque plus de deux erreurs évidentes ont été commises, l'erreur est codée 0, ce qui signifie qu'elle est trop complexe pour une logique évidente. A partir des réponses codées, nous avons calculé les erreurs normales pour les French grades 6eme et 5eme. 
 
-Tous les différents types de codes d'erreur avec des explications et des exemples se trouvent dans la feuille de calcul "cotation_malabi_french_error_codes.xlsx".
+Tous les différents types de codes d'erreur avec des explications et des exemples se trouvent dans le tableur "cotation_malabi_french_error_codes.xlsx".
 
 # Dépistage des dyslexies
-Une fois que les réponses des sujets ont été codées, le script (scripts/1R_malabi_dyslexia_detection.R) calcule le nombre d'erreurs d'un certain type et vérifie si le score des lecteurs atteint le seuil par rapport aux lecteurs normaux pour une dyslexie particulière.
+Une fois que les réponses des sujets ont été codées, le code (scripts/1R_malabi_dyslexia_detection.R) calcule le nombre d'erreurs d'un certain type et vérifie si le score des lecteurs atteint le seuil par rapport aux lecteurs normaux pour une dyslexie particulière.
 
 After the subjects responses have been coded, the script (scripts/2R_malabi_dyslexia_detection.R)  to calculate the number of errors of a certain type and see if the readers score reaches threshold compared to normal readers for a particular dyslexia.
 
