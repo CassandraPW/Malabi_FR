@@ -38,38 +38,36 @@ Une fois le test effectué, en utilisant la feuille de scoring dans le dossier '
 
 Une fois que tu as écrit manuellement la transcription phonétique des réponses, exécute le code (script/1R_error_response_coding.R) pour associer le type d'erreur à la réponse incorrecte. Par exemple, si pour le psedoword 'pocile', la transcription phonétique de l'erreur est 'polis', notre script codera cela comme une erreur de position de lettre, parce que les lettres 'c' et 'l' ont été transposées.
 
-Il arrive parfois qu'une erreur ait plus d'un code. Dans ce cas, il y a une logique à suivre pour choisir le code. Lorsque plus de deux erreurs évidentes ont été commises, l'erreur est codée 0, ce qui signifie qu'elle est trop complexe pour une logique évidente. A partir des réponses codées, nous avons calculé les erreurs normales pour les French grades 6eme et 5eme. 
+Il arrive parfois qu'une erreur ait plus d'un code. Dans ce cas, il y a une logique à suivre pour choisir le code. Lorsque plus de deux erreurs évidentes ont été commises, l'erreur est codée 0, ce qui signifie qu'elle est trop complexe pour une logique évidente. A partir des réponses codées, nous avons calculé les erreurs normales pour les Français niveaux 6eme et 5eme. 
 
 Tous les différents types de codes d'erreur avec des explications et des exemples se trouvent dans le tableur "cotation_malabi_french_error_codes.xlsx".
 
 # Dépistage des dyslexies
-Une fois que les réponses des sujets ont été codées, le code (scripts/1R_malabi_dyslexia_detection.R) calcule le nombre d'erreurs d'un certain type et vérifie si le score des lecteurs atteint le seuil par rapport aux lecteurs normaux pour une dyslexie particulière.
+Une fois que les réponses des sujets ont été codées, le code (2R_malabi_dyslexia_detection.R) calcule le nombre d'erreurs d'un certain type et vérifie si le score des lecteurs atteint le seuil par rapport aux lecteurs normaux pour une dyslexie particulière (Français niveaux 6eme et 5eme).
 
-After the subjects responses have been coded, the script (scripts/2R_malabi_dyslexia_detection.R)  to calculate the number of errors of a certain type and see if the readers score reaches threshold compared to normal readers for a particular dyslexia.
 
-##
-*Instructions for scoring the Malabi*
 
-*Download the scoring sheet (malabi_cotation.pdf).*
-*Don't forget to turn on Audacity! Time each test. If you forget, you can take the time on Audacity. On the scoring sheet, note the identifying information. In order to pay close attention to the child's answers, don't note the type of error while the child is reading, simply cross out the words read incorrectly, then note them later as you listen to the recording.
-Test 1) Single words 
-I'm going to show you some unrelated words. Try to read them quickly and accurately. (Look at your watch) Get ready... Go!
-Test 2) Pseudowords
-Now I'm going to show you some words I've made up that don't exist. Read them quickly and accurately. Get ready.... Go!
-Test 3) Word pairs 
-Now I'm going to show you some real words, but this time they come in pairs. Tell me afterwards if you find this easier or harder. Read them quickly and accurately. Get ready... Go!
-Stop AUDACITY and save the audio file: first_name_initial of family_name_school ... all lowercase please.*
+*# ----------------------------------*
+*# Instructions for Conducting the Malabi Test*
+*Download the scoring sheet (malabi_cotation.pdf)*
+*Don't forget to turn on Audacity! Time each test. If you forget, you can take the time on Audacity. On the scoring sheet, note the identifying information. In order to pay close attention to the child's responses, don't note the type of error while the child is reading, just cross out the words read incorrectly, then note them later while listening to the recording.*
+*## Test 1) Isolated Words*
+*I'm going to show you some words, they don't have any connection between them. Try to read them quickly and accurately. (Look at your watch) Get ready...go!*
+*## Test 2) Pseudowords*
+*Now I'm going to show you words that don't exist, that I've made up. Read them quickly and accurately. Get ready...go!*
+*## Test 3) Pairs of Words*
+*Now I'm going to show you real words, but this time they come in pairs. You'll tell me afterwards if you find this easier or more difficult. Read them quickly and accurately. Get ready...go!*
 
-*Error type coding the Malabi.*
+*Stop AUDACITY and save the audio file: first name_initial of the family name_school...all in lowercase please.*
 
-*Once the test is done, using the spreadsheet in the folder data 'cotation_malabi_'. Listen to the recordings of the words/pseudowords marked as incorrect. Write down the response using the phonetic trascription indicated in the spreadsheet 'phonetic_coding_malabi. For example the word 'chat' is coded 'Sa'because the 'ch' makes a single phoneme and the 't' is not pronounced.*
+*# Error Type Coding*
+*Once the test is performed, using the scoring sheet in the folder 'data/malabi_subjectname.xlsx'. Listen to the recordings of the words/pseudowords marked as incorrect on your scoring sheet. Write the subject's response using the phonetic transcription indicated in the 'phonetic_coding_malabi.xlsx' spreadsheet. For example, the French word "chat" is coded "Sa" because the "ch" forms a single phoneme and the "t" is not pronounced.*
 
-*Once you have manually written the phonetic transcription of the responses, run the script (XX) to associate the error type to the incorrect response. For example, if for the psedoword 'pocile', the phonetic transcription of the error is 'polis', our script will code this as a letter position error, because the letters 'c' and 'l' were transposed.*
+*Once you have manually written the phonetic transcription of the responses, run the code (script/1R_error_response_coding.R) to associate the error type with the incorrect response. For example, if for the pseudoword 'pocile', the phonetic transcription of the error is 'polis', our script will code this as a letter position error, because the letters 'c' and 'l' have been transposed.*
 
-*Sometimes an error may have more than one code. In these instances, there is a logic to follow in choosing which code. When more than 2 obvious errors have been made, the error as coded as 0, meaning it is too complex for an obvious logic.From the coded responses we calculated the norm errors for grades 6 and 7. *
+*Sometimes you may come across a reaponse an error has more than one code. In this case, there is a logic to follow to choose the code. When more than two obvious errors have been committed, the error is coded 0, which means it is too complex for obvious logic. From the coded responses, we have calculated the normal errors for French 6th and 5th grade levels. Also, you may eventually come across an error not in our database, the code will alert you to us and you will need to this.*
 
-*All of the different types of error codes with explanations and examples are in the spreadsheet 'cotation_malabi_french_error_codes.xlsx'.*
+*All the different types of error codes with explanations and examples can be found in the spreadsheet "cotation_malabi_french_error_codes.xlsx".*
 
-*Testing for dyslexia*
-*After the subjects responses have been coded, the script (scripts/2R_malabi_dyslexia_detection.R) to calculate the number of errors of a certain type and see if the readers score reaches threshold compared to normal readers for a particular dyslexia.*
-
+*# Dyslexia Screening*
+*Once the subjects' responses have been coded, the code (2R_malabi_dyslexia_detection.R) calculates the number of errors of a certain type and checks if the reader's score reaches the threshold compared to normal readers for a particular dyslexia (French 6th and 5th grade levels).*
