@@ -13,13 +13,14 @@ This project first began with norming the data of French 6th and 7th grade stude
 - The script 'scripts/error_response_coding.R' uses this database to automatically code new response files and warn when there are new errors.
 
 # Obtenir le test
-Le Malabi est un test gratuit, mais nous vous demandons de contacter notre laboratoire pour l'obtenir. Pourquoi ? Parce que le Malabi, contrairement à d'autres tests de dépistage de la dyslexie, exige une attention particulière à la notation d'erreurs spécifiques ainsi qu'à la mesure du nombre global d'erreurs et de la vitesse de lecture. Nous vous recommandons, avant de nous contacter pour essayer le test, de regarder cette vidéo sur les différents types de dyslexie (en anglais, avec sous-titres en français) : https://www.college-de-france.fr/fr/agenda/seminaire/les-troubles-specifiques-du-developpement-cognitif/diagnostic-et-remediation-des-differents-sous-types-de-dyslexie
+Le Malabi est un test gratuit, mais nous vous demandons de contacter notre laboratoire pour l'obtenir. Pourquoi ? Parce que contrairement à d'autres tests de dépistage de la dyslexie qui ne mesurent que le nombre de mots correctement lus et le temps de lecture, le Malabi exige une attention particulière à la notation d'erreurs spécifiques. Pour ce faire, il faut connaître et se former aux différentes dyslexies observées dans la littérature scientifique. Nous vous recommandons, avant de nous contacter pour essayer le test, de regarder cette vidéo sur les différents types de dyslexie (en anglais, avec sous-titres en français) : https://www.college-de-france.fr/fr/agenda/seminaire/les-troubles-specifiques-du-developpement-cognitif/diagnostic-et-remediation-des-differents-sous-types-de-dyslexie
 
 *Get the screener*
-*The Malabi is a free test, however, we require that you contact our lab to obtain it. Why, becasue the Malabi, unlike other dyslexia screeners requires careful attention to specific error scoring along with measuring the overall number of errors and reading speed. We reccomend that before you contact us to try the test, please watch this video on different dyslexia types (in English, with French subtitles) : https://www.college-de-france.fr/fr/agenda/seminaire/les-troubles-specifiques-du-developpement-cognitif/diagnostic-et-remediation-des-differents-sous-types-de-dyslexie*
+*The Malabi is a free test, but we ask you to contact our laboratory to obtain it. Why? Because, unlike other dyslexia screening tests which only measure the number of words correctly read and reading time, the Malabi requires special attention to the scoring of specific errors. This requires knowledge and training in the various dyslexias observed in scientific literature. Before contacting us to try out the test, we recommend that you watch this video on the different types of dyslexia: https://www.college-de-france.fr/fr/agenda/seminaire/les-troubles-specifiques-du-developpement-cognitif/diagnostic-et-remediation-des-differents-sous-types-de-dyslexie*
 
 ### contact : cassandra.potier-watkins@college-de-france.fr
 
+# ----------------------------------
 # Instructions pour la passation du Malabi
 Téléchargez la feuille de cotation (malabi_cotation.pdf)
 N’oublier pas d’allumer Audacity ! Chronométrer chaque test. Si vous oubliez, vous pouvez prendre le temps sur Audacity. Sur la feuille de cotation, noter les informations identifiantes. Afin d'être très attentif aux réponses de l'enfant, ne note pas le type d'erreur pendant que l'enfant lit, barre simplement les mots lus de façon incorrecte, puis note-les plus tard en écoutant l'enregistrement.
@@ -33,7 +34,7 @@ Maintenant je vais te montrer des vrais mots, mais cette fois ils vont par deux.
 Arrêter AUDACITY et sauvegarder le fichier audio : prénom_initial du nom de la famille_école … tout en minuscule svp.
 
 # Error type coding
-Une fois le test effectué, en utilisant la feuille de calcul dans le dossier data 'cotation_malabi'. Écoute les enregistrements des mots/pseudomots marqués comme incorrects. Écris la réponse en utilisant la trascription phonétique indiquée dans la feuille de calcul 'phonetic_coding_malabi'. Par exemple, le mot "chat" est codé "Sa" parce que le "ch" forme un seul phonème et que le "t" n'est pas prononcé.
+Une fois le test effectué, en utilisant la feuille de scoring dans le dossier 'data/cotation_malabi'. Écoute les enregistrements des mots/pseudomots marqués comme incorrects. Écris la réponse en utilisant la trascription phonétique indiquée dans la feuille de calcul 'phonetic_coding_malabi'. Par exemple, le mot "chat" est codé "Sa" parce que le "ch" forme un seul phonème et que le "t" n'est pas prononcé.
 
 Une fois que tu as écrit manuellement la transcription phonétique des réponses, exécute le script (1R_error_response_coding.R) pour associer le type d'erreur à la réponse incorrecte. Par exemple, si pour le psedoword 'pocile', la transcription phonétique de l'erreur est 'polis', notre script codera cela comme une erreur de position de lettre, parce que les lettres 'c' et 'l' ont été transposées.
 
