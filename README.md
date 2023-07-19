@@ -40,7 +40,7 @@ Une fois que tu as écrit manuellement la transcription phonétique des réponse
 
 Il arrive parfois qu'une erreur ait plus d'un code. Dans ce cas, il y a une logique à suivre pour choisir le code. Lorsque plus de deux erreurs évidentes ont été commises, l'erreur est codée 0, ce qui signifie qu'elle est trop complexe pour une logique évidente. A partir des réponses codées, nous avons calculé les erreurs normales pour les Français niveaux 6eme et 5eme. 
 
-Tous les différents types de codes d'erreur avec des explications et des exemples se trouvent dans le tableur "cotation_malabi_french_error_codes.xlsx".
+Tous les différents types de codes d'erreur avec des explications et des exemples se trouvent dans le tableur "codingScheme_malabi_french.pdf".
 
 # Dépistage des dyslexies
 Une fois que les réponses des sujets ont été codées, le code (2R_malabi_dyslexia_detection.R) calcule le nombre d'erreurs d'un certain type et vérifie si le score des lecteurs atteint le seuil par rapport aux lecteurs normaux pour une dyslexie particulière (Français niveaux 6eme et 5eme).
@@ -67,7 +67,7 @@ Une fois que les réponses des sujets ont été codées, le code (2R_malabi_dysl
 
 *Sometimes you may come across a reaponse an error has more than one code. In this case, there is a logic to follow to choose the code. When more than two obvious errors have been committed, the error is coded 0, which means it is too complex for obvious logic. From the coded responses, we have calculated the normal errors for French 6th and 5th grade levels. Also, you may eventually come across an error not in our database, the code will alert you to us and you will need to this.*
 
-*All the different types of error codes with explanations and examples can be found in the spreadsheet "cotation_malabi_french_error_codes.xlsx".*
+*All the different types of error codes with explanations and examples can be found in the spreadsheet "codingScheme_malabi_french.pdf".*
 
 *# Dyslexia Screening*
 *Once the subjects' responses have been coded, the code (2R_malabi_dyslexia_detection.R) calculates the number of errors of a certain type and checks if the reader's score reaches the threshold compared to normal readers for a particular dyslexia (French 6th and 5th grade levels).*
